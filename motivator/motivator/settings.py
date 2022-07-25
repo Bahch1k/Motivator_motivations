@@ -1,4 +1,4 @@
-import pymysql
+import pymysql 
 
 """
 Django settings for motivator project.
@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-5*u7a8&4vqhflvoy5k4bty_z46-fohgv066xa))$mobz5*kv+)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['motivations', '127.0.0.1']
 
 
 # Application definition
@@ -40,7 +40,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'motivations',
+    'rest_framework',
+    'drf_yasg',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -82,7 +90,7 @@ DATABASES = {
         'NAME': 'motivation',
         'USER': 'baha',
         'PASSWORD': 'BaHa12062000',
-        'HOST': 'db',
+        'HOST': 'db-mysql',
         'PORT': '3306',
     }
 }
